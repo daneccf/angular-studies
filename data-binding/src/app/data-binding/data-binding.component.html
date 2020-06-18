@@ -1,6 +1,6 @@
 <section>
 
-    <article>
+    <!-- <article>
         <h3>Interpolation</h3>
         <p>String renderizada com interpolação: {{ url }}</p>
         <p>Resultado de 1 + 1: {{ 1 + 1 }}</p>
@@ -10,8 +10,45 @@
 
     <article>
         <h3>Property Binding</h3>
-        <img src="{{ urlImagem }}"> //interpolacao
-        <img [src]="urlImagem"> //entre [] o angular identifica como property binding
+        //interpolacao
+        <img src="{{ urlImagem }}"> 
+        //entre [] o angular identifica como property binding
+        <img [src]="urlImagem"> 
+    </article> -->
+
+    <article>
+        <h3>Class e Style Binding</h3>
+        <div>
+            Selecione uma classe:
+            <select #classe (change)="0">
+                <option value="alert-sucess">Sucesso</option>
+                <option value="alert-info">Info</option>
+                <option value="alert-warning">Alerta</option>
+                <option value="alert-danger">Erro</option>
+            </select>
+            <br><br>
+
+            <div class="alert {{ classe.value }}" role="alert">
+                Texto colorido conforme valor do combobox.
+            </div>
+
+
+            <div class="alert" role="alert"
+            [class.alert-sucess]="classe.value == 'alert-sucess'">
+            Sucesso</div>
+
+            <div class="alert" role="alert"
+            [class.alert-info]="classe.value == 'alert-info'">
+            Info</div>
+
+            <div class="alert" role="alert"
+            [class.alert-warning]="classe.value == 'alert-warning'">
+            Alerta</div>
+
+            <div class="alert" role="alert"
+            [class.alert-danger]="classe.value == 'alert-danger'">
+            Erro</div>
+        </div>
     </article>
 
 </section>
